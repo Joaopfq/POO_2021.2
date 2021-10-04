@@ -47,14 +47,14 @@ int procurar_valor(int vet[])
 
     for (i = 0; i < size; i++) {
         if (valor == vet[i]){
-            return (i + 1);
+            return i;
             break;
         }
     }
     return -1;
 }
 
-int procurar_valor_apos(int vet[])
+int procurar_valor_apartir(int vet[])
 {
     int i = 0;
     int valor = 0;
@@ -65,9 +65,9 @@ int procurar_valor_apos(int vet[])
     cout << "Digite o valor: ";
     scanf("%d", &valor );
 
-    for (i = (i - 1); i < size; i++) {
+    for (i = i; i < size; i++) {
         if (valor == vet[i])
-            return (i + 1);     
+            return i;     
     }
     return -1;
 }
@@ -105,15 +105,12 @@ int procurar_menor_pos(int vet[])
     int pos = 0;
 
     for (i = 0; i < size; i++) {
-        if (vet[i] < 0)
-            vet[i] = (vet[i] * -1);
-
         if (vet[i] <= menor ) {
             menor = vet[i];
             pos = i;
         }
     }
-    return (pos + 1);
+    return pos;
 }
 
 int posicao_menor_pos_apartir(int vet[])
@@ -126,16 +123,13 @@ int posicao_menor_pos_apartir(int vet[])
     cout << "Iniciar a busca pela posicao: ";
     scanf("%d", &j );
 
-    for (i = (j - 1); i < size; i++) {
-        if (vet[i] < 0){
-            vet[i] = (vet[i] * -1);
-        }
+    for (i = j; i < size; i++) {
         if (vet[i] < menor ) {
             menor = vet[i];
             pos = i;
         }       
     }
-    return (pos + 1);
+    return pos;
 }
 
 int procurar_melhor_pos_se(int vet[])
@@ -240,16 +234,16 @@ string homens_sao_mais_estressados_que_mulheres(int vet[])
         }
     }
     if ((Stress_homens/Conta_homens) > (Stress_mulheres/Conta_mulheres))
-        return "A media dos homens é maior";
+        return "A media dos homens eh maior";
     else if ((Stress_homens/Conta_homens) < (Stress_mulheres/Conta_mulheres))
-        return "A media das mulhers é maior";
+        return "A media das mulhers eh maior";
     else 
         return "Empate";
 }
 
 int main()
 {
-    int vet[size] = {-51, 99, 1, -50, -1, -99};
+    int vet[size] = {5, 3, 1, -50, -1, 99};
 
-    cout << existe(vet);
+    cout << homens_sao_mais_estressados_que_mulheres(vet);
 }
