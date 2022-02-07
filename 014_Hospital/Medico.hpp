@@ -43,7 +43,7 @@ public:
         string str = "Pacientes:\n";
 
         for(auto paciente : this->pacientes){
-            str = str + "\t[" + paciente.second->getId() + "|" + paciente.second->getDiagnostico() + "]\n";
+            str = str + "\t[" + paciente.second->getId() + "|" + paciente.second->getDiagnostico() + ", " + "]\n";
         }
 
         return str;
